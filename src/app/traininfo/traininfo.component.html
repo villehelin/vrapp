@@ -1,0 +1,30 @@
+<!--
+<span *ngFor="let train of traininfo">
+  {{train.trainType}} {{train.trainNumber}}
+  {{train.timeTableRows[0].stationShortCode}}
+  {{train.timeTableRows[train.timeTableRows.length - 1].stationShortCode}}<br>
+<span>
+-->
+
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th>JUNA</th>
+    <th>LÄHTÖASEMA</th>
+    <th>LÄHTÖAIKA</th>
+    <th>PÄÄTEASEMA</th>
+    <th>SAAPUMISAIKA</th>
+    <th>ARVIOTU SAAPUMISAIKA</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let train of traininfo">
+    <th>{{train.trainType}} {{train.trainNumber}}</th>
+    <th>{{train.timeTableRows[0].stationShortCode}}</th>
+    <th>{{train.timeTableRows[0].scheduledTime | date:'HH:mm'}}</th>
+    <th>{{train.timeTableRows[train.timeTableRows.length - 1].stationShortCode}}</th>
+    <th>{{train.timeTableRows[train.timeTableRows.length - 1].scheduledTime | date: 'HH:mm'}}</th>
+    <th>{{train.timeTableRows[train.timeTableRows.length - 1].liveEstimateTime | date: 'HH:mm'}}</th>
+  </tr>
+  </tbody>
+</table>

@@ -1,0 +1,19 @@
+<agm-map
+  [latitude]="lat"
+  [longitude]="lng"
+  [zoom]="zoom"
+  style="height: 500px">
+  <div *ngFor="let train of trainlocation">
+  <agm-marker *ngIf="train.trainNumber < 1000"
+              [latitude]="train.location.coordinates[1]"
+              [longitude]="train.location.coordinates[0]"
+              [iconUrl]='{"url": "assets/icon/icon_trainmap.png","scaledSize": {"height": 30, "width": 30}}'>
+    <agm-info-window >
+      <h4>{{train.trainNumber}}</h4>
+      <p>lat: {{train.location.coordinates[1]}}</p>
+      <p>lng: {{train.location.coordinates[0]}}</p>
+      <p>speed: {{train.speed}}</p>
+    </agm-info-window>
+  </agm-marker>
+  </div>
+</agm-map>
